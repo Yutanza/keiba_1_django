@@ -1,0 +1,19 @@
+# Python関連
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 仮想環境
+venv/
+env/
+
+# Djangoのデータベース
+db.sqlite3
+
+# 環境変数ファイル
+.env
+
+# CSVファイル
+csv_dir/
+module_csv/
