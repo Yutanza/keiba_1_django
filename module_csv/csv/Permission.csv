@@ -1,0 +1,73 @@
+id,name,codename
+25,Can add breeder,add_breeder
+26,Can change breeder,change_breeder
+27,Can delete breeder,delete_breeder
+28,Can view breeder,view_breeder
+61,Can add corner passage rank,add_cornerpassagerank
+62,Can change corner passage rank,change_cornerpassagerank
+63,Can delete corner passage rank,delete_cornerpassagerank
+64,Can view corner passage rank,view_cornerpassagerank
+45,Can add horse,add_horse
+46,Can change horse,change_horse
+47,Can delete horse,delete_horse
+48,Can view horse,view_horse
+29,Can add jockey,add_jockey
+30,Can change jockey,change_jockey
+31,Can delete jockey,delete_jockey
+32,Can view jockey,view_jockey
+57,Can add lap time,add_laptime
+58,Can change lap time,change_laptime
+59,Can delete lap time,delete_laptime
+60,Can view lap time,view_laptime
+69,Can add owner,add_owner
+70,Can change owner,change_owner
+71,Can delete owner,delete_owner
+72,Can view owner,view_owner
+53,Can add payout,add_payout
+54,Can change payout,change_payout
+55,Can delete payout,delete_payout
+56,Can view payout,view_payout
+49,Can add pedigree,add_pedigree
+50,Can change pedigree,change_pedigree
+51,Can delete pedigree,delete_pedigree
+52,Can view pedigree,view_pedigree
+33,Can add race,add_race
+34,Can change race,change_race
+35,Can delete race,delete_race
+36,Can view race,view_race
+65,Can add race entry,add_raceentry
+66,Can change race entry,change_raceentry
+67,Can delete race entry,delete_raceentry
+68,Can view race entry,view_raceentry
+37,Can add race html,add_racehtml
+38,Can change race html,change_racehtml
+39,Can delete race html,delete_racehtml
+40,Can view race html,view_racehtml
+41,Can add trainer,add_trainer
+42,Can change trainer,change_trainer
+43,Can delete trainer,delete_trainer
+44,Can view trainer,view_trainer
+1,Can add log entry,add_logentry
+2,Can change log entry,change_logentry
+3,Can delete log entry,delete_logentry
+4,Can view log entry,view_logentry
+9,Can add group,add_group
+10,Can change group,change_group
+11,Can delete group,delete_group
+12,Can view group,view_group
+5,Can add permission,add_permission
+6,Can change permission,change_permission
+7,Can delete permission,delete_permission
+8,Can view permission,view_permission
+13,Can add user,add_user
+14,Can change user,change_user
+15,Can delete user,delete_user
+16,Can view user,view_user
+17,Can add content type,add_contenttype
+18,Can change content type,change_contenttype
+19,Can delete content type,delete_contenttype
+20,Can view content type,view_contenttype
+21,Can add session,add_session
+22,Can change session,change_session
+23,Can delete session,delete_session
+24,Can view session,view_session

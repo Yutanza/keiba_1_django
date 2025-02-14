@@ -2308,25 +2308,21 @@ class RaceDataSaver:
         レースエントリー情報を保存する。
         ここで netkeiba_id を使った update_or_create を行い、IDを一意管理する。
         """
+
         for entry in self.race_entries:
             # -------------------------
             # 1) Horse の保存
             # -------------------------
-            horse_obj = None
-            horse_id_val = entry.get('horse_id')  # 例: '2021101930' (数字文字列)
-
+            horse_id_val = entry.get('horse_id')
             if horse_id_val:
-                # netkeiba_id がある場合はこちらをキーに update_or_create
                 horse_obj, _ = Horse.objects.update_or_create(
-                    name=entry['horse_name'],
+                    horse_netkeiba_id=horse_id_val,
                     defaults={
-                        'horse_netkeiba_id':horse_id_val,
                         'name': entry['horse_name'],
-                        'sex_age': entry['sex_age'],
+                        'sex_age': entry['sex_age']
                     }
                 )
             else:
-                # netkeiba_id が無い場合は名前をキーにするなどの代替
                 horse_obj, _ = Horse.objects.update_or_create(
                     name=entry['horse_name'],
                     defaults={'sex_age': entry['sex_age']}
@@ -2335,15 +2331,11 @@ class RaceDataSaver:
             # -------------------------
             # 2) Jockey の保存
             # -------------------------
-            jockey_obj = None
             jockey_id_val = entry.get('jockey_id')
-
             if jockey_id_val:
                 jockey_obj, _ = Jockey.objects.update_or_create(
-                    name=entry['jockey_name'],
-                    defaults={
-                        'jockey_netkeiba_id':jockey_id_val,
-                        'name': entry['jockey_name']}
+                    jockey_netkeiba_id=jockey_id_val,
+                    defaults={'name': entry['jockey_name']}
                 )
             else:
                 jockey_obj, _ = Jockey.objects.update_or_create(
@@ -2353,15 +2345,11 @@ class RaceDataSaver:
             # -------------------------
             # 3) Trainer の保存
             # -------------------------
-            trainer_obj = None
             trainer_id_val = entry.get('trainer_id')
-
             if trainer_id_val:
                 trainer_obj, _ = Trainer.objects.update_or_create(
-                    name=entry['trainer_name'],
-                    defaults={
-                        'trainer_netkeiba_id':trainer_id_val,
-                        'name': entry['trainer_name']}
+                    trainer_netkeiba_id=trainer_id_val,
+                    defaults={'name': entry['trainer_name']}
                 )
             else:
                 trainer_obj, _ = Trainer.objects.update_or_create(
@@ -2371,15 +2359,11 @@ class RaceDataSaver:
             # -------------------------
             # 4) Owner の保存
             # -------------------------
-            owner_obj = None
             owner_id_val = entry.get('owner_id')
-
             if owner_id_val:
                 owner_obj, _ = Owner.objects.update_or_create(
-                    name=entry['owner_name'],
-                    defaults={
-                        'owner_netkeiba_id':owner_id_val,
-                        'name': entry['owner_name']}
+                    owner_netkeiba_id=owner_id_val,
+                    defaults={'name': entry['owner_name']}
                 )
             else:
                 owner_obj, _ = Owner.objects.update_or_create(
