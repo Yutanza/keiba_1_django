@@ -9,7 +9,7 @@ venv/
 env/
 
 # Djangoのデータベース
-# db.sqlite3
+db.sqlite3
 
 # 環境変数ファイル
 .env
@@ -19,4 +19,3 @@ env/
 # module_csv/
 
 #htmlファイル
-scry/

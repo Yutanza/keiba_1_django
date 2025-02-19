@@ -548,6 +548,8 @@
 
 from django.db import models
 
+from django.db import models
+
 class Race(models.Model):
     """
     開催案内シートに対応するモデル。
@@ -620,8 +622,17 @@ class Race(models.Model):
         blank=True
     )
 
+    # --- ここを追加 ---
+    grade = models.CharField(
+        max_length=10,
+        verbose_name='グレード',
+        null=True,
+        blank=True
+    )
+
     def __str__(self):
         return f"{self.race_name} ({self.race_id})"
+
 
 
 class Horse(models.Model):
