@@ -10,7 +10,6 @@ env/
 
 # Djangoのデータベース
 db.sqlite3
-
 # 環境変数ファイル
 .env
 
