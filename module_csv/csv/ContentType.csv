@@ -1,4 +1,4 @@
-id,app_label,model
+﻿ID,app label,Python モデルクラス名
 1,admin,logentry
 2,auth,permission
 3,auth,group

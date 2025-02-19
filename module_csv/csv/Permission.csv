@@ -1,73 +1,73 @@
-id,name,codename
-25,Can add breeder,add_breeder
-26,Can change breeder,change_breeder
-27,Can delete breeder,delete_breeder
-28,Can view breeder,view_breeder
-61,Can add corner passage rank,add_cornerpassagerank
-62,Can change corner passage rank,change_cornerpassagerank
-63,Can delete corner passage rank,delete_cornerpassagerank
-64,Can view corner passage rank,view_cornerpassagerank
-45,Can add horse,add_horse
-46,Can change horse,change_horse
-47,Can delete horse,delete_horse
-48,Can view horse,view_horse
-29,Can add jockey,add_jockey
-30,Can change jockey,change_jockey
-31,Can delete jockey,delete_jockey
-32,Can view jockey,view_jockey
-57,Can add lap time,add_laptime
-58,Can change lap time,change_laptime
-59,Can delete lap time,delete_laptime
-60,Can view lap time,view_laptime
-69,Can add owner,add_owner
-70,Can change owner,change_owner
-71,Can delete owner,delete_owner
-72,Can view owner,view_owner
-53,Can add payout,add_payout
-54,Can change payout,change_payout
-55,Can delete payout,delete_payout
-56,Can view payout,view_payout
-49,Can add pedigree,add_pedigree
-50,Can change pedigree,change_pedigree
-51,Can delete pedigree,delete_pedigree
-52,Can view pedigree,view_pedigree
-33,Can add race,add_race
-34,Can change race,change_race
-35,Can delete race,delete_race
-36,Can view race,view_race
-65,Can add race entry,add_raceentry
-66,Can change race entry,change_raceentry
-67,Can delete race entry,delete_raceentry
-68,Can view race entry,view_raceentry
-37,Can add race html,add_racehtml
-38,Can change race html,change_racehtml
-39,Can delete race html,delete_racehtml
-40,Can view race html,view_racehtml
-41,Can add trainer,add_trainer
-42,Can change trainer,change_trainer
-43,Can delete trainer,delete_trainer
-44,Can view trainer,view_trainer
-1,Can add log entry,add_logentry
-2,Can change log entry,change_logentry
-3,Can delete log entry,delete_logentry
-4,Can view log entry,view_logentry
-9,Can add group,add_group
-10,Can change group,change_group
-11,Can delete group,delete_group
-12,Can view group,view_group
-5,Can add permission,add_permission
-6,Can change permission,change_permission
-7,Can delete permission,delete_permission
-8,Can view permission,view_permission
-13,Can add user,add_user
-14,Can change user,change_user
-15,Can delete user,delete_user
-16,Can view user,view_user
-17,Can add content type,add_contenttype
-18,Can change content type,change_contenttype
-19,Can delete content type,delete_contenttype
-20,Can view content type,view_contenttype
-21,Can add session,add_session
-22,Can change session,change_session
-23,Can delete session,delete_session
-24,Can view session,view_session
+﻿ID,名前,コンテンツタイプ,コード名
+25,Can add breeder,7,add_breeder
+26,Can change breeder,7,change_breeder
+27,Can delete breeder,7,delete_breeder
+28,Can view breeder,7,view_breeder
+61,Can add corner passage rank,16,add_cornerpassagerank
+62,Can change corner passage rank,16,change_cornerpassagerank
+63,Can delete corner passage rank,16,delete_cornerpassagerank
+64,Can view corner passage rank,16,view_cornerpassagerank
+45,Can add horse,12,add_horse
+46,Can change horse,12,change_horse
+47,Can delete horse,12,delete_horse
+48,Can view horse,12,view_horse
+29,Can add jockey,8,add_jockey
+30,Can change jockey,8,change_jockey
+31,Can delete jockey,8,delete_jockey
+32,Can view jockey,8,view_jockey
+57,Can add lap time,15,add_laptime
+58,Can change lap time,15,change_laptime
+59,Can delete lap time,15,delete_laptime
+60,Can view lap time,15,view_laptime
+69,Can add owner,18,add_owner
+70,Can change owner,18,change_owner
+71,Can delete owner,18,delete_owner
+72,Can view owner,18,view_owner
+53,Can add payout,14,add_payout
+54,Can change payout,14,change_payout
+55,Can delete payout,14,delete_payout
+56,Can view payout,14,view_payout
+49,Can add pedigree,13,add_pedigree
+50,Can change pedigree,13,change_pedigree
+51,Can delete pedigree,13,delete_pedigree
+52,Can view pedigree,13,view_pedigree
+33,Can add race,9,add_race
+34,Can change race,9,change_race
+35,Can delete race,9,delete_race
+36,Can view race,9,view_race
+65,Can add race entry,17,add_raceentry
+66,Can change race entry,17,change_raceentry
+67,Can delete race entry,17,delete_raceentry
+68,Can view race entry,17,view_raceentry
+37,Can add race html,10,add_racehtml
+38,Can change race html,10,change_racehtml
+39,Can delete race html,10,delete_racehtml
+40,Can view race html,10,view_racehtml
+41,Can add trainer,11,add_trainer
+42,Can change trainer,11,change_trainer
+43,Can delete trainer,11,delete_trainer
+44,Can view trainer,11,view_trainer
+1,Can add log entry,1,add_logentry
+2,Can change log entry,1,change_logentry
+3,Can delete log entry,1,delete_logentry
+4,Can view log entry,1,view_logentry
+9,Can add group,3,add_group
+10,Can change group,3,change_group
+11,Can delete group,3,delete_group
+12,Can view group,3,view_group
+5,Can add permission,2,add_permission
+6,Can change permission,2,change_permission
+7,Can delete permission,2,delete_permission
+8,Can view permission,2,view_permission
+13,Can add user,4,add_user
+14,Can change user,4,change_user
+15,Can delete user,4,delete_user
+16,Can view user,4,view_user
+17,Can add content type,5,add_contenttype
+18,Can change content type,5,change_contenttype
+19,Can delete content type,5,delete_contenttype
+20,Can view content type,5,view_contenttype
+21,Can add session,6,add_session
+22,Can change session,6,change_session
+23,Can delete session,6,delete_session
+24,Can view session,6,view_session

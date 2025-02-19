@@ -20,7 +20,7 @@ from App_1.models import Race
 # ↑ "yourapp" は実際のアプリ名に置き換えてください
 
 # datafecher.py で定義されているクラスをインポート
-from datafecher import DataFetcher
+from .datafecher import DataFetcher
 
 # class Command(BaseCommand):
 #     help = "スクレイピングで重賞日程(レースID, G1~G3)を取得・更新するコマンド"

@@ -103,50 +103,54 @@ from App_1.models import RaceHTML
 from scry.RaceStatics.raceid_search import SearchID
 from scry.html_scry import RacePipeline
 from module_csv.create_csv_from_db import create_csv_from_db
+from scry.scry_jusho import *
 
 def main():
-    year = 2024
-    search = SearchID(year)
+    # year = 2024
+    # search = SearchID(year)
 
-    # 1) race_ids_YYYY.csv が無い、または空ファイルの場合、レースIDを取得してCSVに保存
-    if (not os.path.exists(search.file_path)) or (os.path.getsize(search.file_path) == 0):
-        print(f"{search.file_path} が存在しないか空です。レースIDを取得します...")
-        search.get_race_date_ids()   # カレンダーを巡回し、 date_id_list を取得
-        search.get_race_ids()        # date_id_list から race_id_list を取得
-        search.save_to_csv()         # race_ids_YYYY.csv に保存
-        print("レースIDの取得とCSV保存が完了しました。")
+    # # 1) race_ids_YYYY.csv が無い、または空ファイルの場合、レースIDを取得してCSVに保存
+    # if (not os.path.exists(search.file_path)) or (os.path.getsize(search.file_path) == 0):
+    #     print(f"{search.file_path} が存在しないか空です。レースIDを取得します...")
+    #     search.get_race_date_ids()   # カレンダーを巡回し、 date_id_list を取得
+    #     search.get_race_ids()        # date_id_list から race_id_list を取得
+    #     search.save_to_csv()         # race_ids_YYYY.csv に保存
+    #     print("レースIDの取得とCSV保存が完了しました。")
 
-    # 2) race_ids_YYYY.csv を読み込み、1レースずつ HTML を取得して RaceHTML に保存
-    #    その後に RacePipeline.run() を呼び出し、HTMLから各モデルへ情報を展開
-    try:
-        with open(search.file_path, mode='r', encoding='utf-8') as f:
-            reader = csv.reader(f)
-            header = next(reader, None)  # ヘッダー行をスキップ
-            race_ids = [row[0] for row in reader if row]
-    except Exception as e:
-        print(f"CSVファイルの読み込み中にエラーが発生しました: {e}")
-        return
+    # # 2) race_ids_YYYY.csv を読み込み、1レースずつ HTML を取得して RaceHTML に保存
+    # #    その後に RacePipeline.run() を呼び出し、HTMLから各モデルへ情報を展開
+    # try:
+    #     with open(search.file_path, mode='r', encoding='utf-8') as f:
+    #         reader = csv.reader(f)
+    #         header = next(reader, None)  # ヘッダー行をスキップ
+    #         race_ids = [row[0] for row in reader if row]
+    # except Exception as e:
+    #     print(f"CSVファイルの読み込み中にエラーが発生しました: {e}")
+    #     return
 
-    print(f"CSVから {len(race_ids)} 件のレースIDを読み込みました。")
-    count = 0
+    # print(f"CSVから {len(race_ids)} 件のレースIDを読み込みました。")
+    # count = 0
 
-    for raceid in race_ids[1000:]:
-        count += 1
-        print(f"[{count}/{len(race_ids)}] race_id={raceid} の処理を開始します。")
+    # for raceid in race_ids[1000:]:
+    #     count += 1
+    #     print(f"[{count}/{len(race_ids)}] race_id={raceid} の処理を開始します。")
 
-        # 2-1) レースIDに対応するHTMLを取得・保存 (RaceHTML) 
-        #      既に保存済みの場合は update_or_create の仕組みで更新・スキップ
-        search.save_html_t_db(raceid)
+    #     # 2-1) レースIDに対応するHTMLを取得・保存 (RaceHTML) 
+    #     #      既に保存済みの場合は update_or_create の仕組みで更新・スキップ
+    #     search.save_html_t_db(raceid)
 
-        # 2-2) 取得したHTMLをパイプラインでパースし、DBに保存
-        pipeline = RacePipeline(str(raceid))  # RacePipeline は文字列race_idが想定
-        pipeline.run()
+    #     # 2-2) 取得したHTMLをパイプラインでパースし、DBに保存
+    #     pipeline = RacePipeline(str(raceid))  # RacePipeline は文字列race_idが想定
+    #     pipeline.run()
 
-    print("全レースのHTML取得＆パースが完了しました。")
+    # print("全レースのHTML取得＆パースが完了しました。")
 
-    # 3) 最後に CSV出力など別処理を実行
+    # # 3) 最後に CSV出力など別処理を実行
+    # create_csv_from_db()
+    # print("create_csv_from_db() が完了しました。")
+    # update_race_schedule(2024)
     create_csv_from_db()
-    print("create_csv_from_db() が完了しました。")
+    pass
 
 if __name__ == "__main__":
     main()

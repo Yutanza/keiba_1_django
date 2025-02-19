@@ -1,1 +1,1 @@
-id,action_time,object_id,object_repr,action_flag,change_message
+﻿ID,操作時刻,ユーザー,コンテンツタイプ,オブジェクト ID,オブジェクトの文字列表現,操作種別,変更メッセージ
