@@ -104,6 +104,7 @@ from scry.RaceStatics.raceid_search import SearchID
 from scry.html_scry import RacePipeline
 from module_csv.create_csv_from_db import create_csv_from_db
 from scry.scry_jusho import *
+from scry.racedate_scry import *
 
 def main():
     # year = 2024
@@ -149,7 +150,9 @@ def main():
     # create_csv_from_db()
     # print("create_csv_from_db() が完了しました。")
     # update_race_schedule(2024)
-    create_csv_from_db()
+    # create_csv_from_db()
+    search_date=GetRaceDate(2025)
+    search_date.run()
     pass
 
 if __name__ == "__main__":
