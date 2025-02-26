@@ -1864,7 +1864,7 @@ class RaceHTMLFetcher:
 
     def get_soup(self) -> BeautifulSoup | None:
         try:
-            html_content = RaceHTML.objects.get(race_id=self.race_id).html_text
+            html_content = RaceHTML.objects.get(race__race_id=self.race_id).html_text
             self.soup = BeautifulSoup(html_content, 'html.parser')
         except RaceHTML.DoesNotExist:
             print(f"RaceHTML(race_id={self.race_id}) がDBに存在しません。")
@@ -2299,6 +2299,7 @@ class RaceDataSaver:
                 'race_number': parsed_id['race_num'],
                 # race_typeも追加
                 'race_type': self.race_info.get('race_type'),
+                # 'grade': self.race_info.get('grade'),  # ★追加
             }
         )
         return race

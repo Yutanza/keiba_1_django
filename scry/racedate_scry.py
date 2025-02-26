@@ -8,6 +8,10 @@ from scry.datafecher import *
 # Django環境下でのインポート（適切なアプリ名に合わせて調整してください）
 from App_1.models import Race  # 例: アプリ名が "myapp" の場合
 
+RACE_LIST_URL = "https://db.netkeiba.com/race/list/{race_date_str}"
+CALENDAR_URL_TEMPLATE = "https://race.netkeiba.com/top/calendar.html?year={year}&month={month}"
+
+
 class GetRaceDate:
     """
     指定された年から、その年のレース開催予定と日付を取得してくれるクラスです。
@@ -30,11 +34,10 @@ class GetRaceDate:
         """
         year = self.year
         race_info = []  # (開催日, レースID) のリスト
-        calendar_url_template = "https://race.netkeiba.com/top/calendar.html?year={year}&month={month}"
 
         # 1月～12月分をループ
         for month in range(1, 13):
-            url = calendar_url_template.format(year=year, month=month)
+            url = CALENDAR_URL_TEMPLATE.format(year=year, month=month)
             # DataFetcher で HTML を取得
             calendar_html = self.fetcher.fetch(url)
             if not calendar_html:
@@ -45,37 +48,21 @@ class GetRaceDate:
 
             # カレンダー内のリンクから、開催日のページ（kaisai_date=YYYYMMDD）を探す
             for link in soup.find_all("a", href=True):
-                # print(link)
                 if "/top/race_list.html?kaisai_date=" in link["href"]:
                     date_match = re.search(r'kaisai_date=(\d{8})', link["href"])
                     if date_match:
                         race_date_str = date_match.group(1)
                         print(f"Found date: {race_date_str}")
 
-                        # レース一覧ページにアクセス
-                        race_list_url = f"https://race.netkeiba.com/top/race_list.html?kaisai_date={race_date_str}"
-                        race_list_url=f"https://db.netkeiba.com/race/list/{race_date_str}"
-                        # https://race.netkeiba.com/top/race_list.html?kaisai_date=20250125
+                        # レース一覧ページにアクセス using constant RACE_LIST_URL
+                        race_list_url = RACE_LIST_URL.format(race_date_str=race_date_str)
                         race_list_html = self.fetcher.fetch(race_list_url)
                         if not race_list_html:
-                            # 取得に失敗した場合は次のリンクへ
                             print('失敗')
                             continue
 
                         race_list_soup = BeautifulSoup(race_list_html, "html.parser")
 
-                        # レース一覧ページ内から、12桁のrace_id（例: 202401010303）を含むリンクを抽出
-                        # for race_link in race_list_soup.find_all("a", href=True):
-                        #     if f"/race/{race_date_str}" in race_link["href"]:
-                        #         # https://race.netkeiba.com/race/result.html?race_id=202506010303&rf=race_list
-                        #         # https://race.netkeiba.com/race/result.html?race_id=202506010801&rf=race_list
-                        #         id_match = re.search(r'race_id=(\d{12})', race_link["href"])
-                        #         if id_match:
-                        #             race_id = id_match.group(1)
-                        #             # 文字列の開催日を datetime.date 型に変換
-                        #             race_date = datetime.strptime(race_date_str, "%Y%m%d").date()
-                        #             race_info.append((race_date, race_id))
-                        #             print(f'ありましたよ！{race_id}')
                         for race_link in race_list_soup.find_all("a", href=True):
                             # db.netkeiba.com では /race/202501010101/ のようにURLパラメータではなくパスで表現される
                             id_match = re.search(r'/race/(\d{12})/', race_link["href"])
@@ -85,15 +72,8 @@ class GetRaceDate:
                                 race_date = datetime.strptime(race_date_str, "%Y%m%d").date()
                                 race_info.append((race_date, race_id))
                                 print(f'ありましたよ！{race_id}')
-                                # else:
-                                #     print("マッチはしてないみたい")
-                            # else:
-                                # print('no match')
                     else:
                         print("date_match なし")
-                # else:
-                #     # デバッグ用に不要であれば削除
-                #     print("None")
         print("All race info:", race_info)
         self.race_info = race_info
 
@@ -128,3 +108,4 @@ class GetRaceDate:
 #     # 実行例: 2023年のデータを取得
 #     target_year = 2023
 #     update_race_records(target_year)
+

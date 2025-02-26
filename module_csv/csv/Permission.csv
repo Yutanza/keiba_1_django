@@ -1,4 +1,8 @@
 ﻿ID,名前,コンテンツタイプ,コード名
+1,Can add log entry,1,add_logentry
+2,Can change log entry,1,change_logentry
+3,Can delete log entry,1,delete_logentry
+4,Can view log entry,1,view_logentry
 25,Can add breeder,7,add_breeder
 26,Can change breeder,7,change_breeder
 27,Can delete breeder,7,delete_breeder
@@ -47,10 +51,6 @@
 42,Can change trainer,11,change_trainer
 43,Can delete trainer,11,delete_trainer
 44,Can view trainer,11,view_trainer
-1,Can add log entry,1,add_logentry
-2,Can change log entry,1,change_logentry
-3,Can delete log entry,1,delete_logentry
-4,Can view log entry,1,view_logentry
 9,Can add group,3,add_group
 10,Can change group,3,change_group
 11,Can delete group,3,delete_group

@@ -5,6 +5,11 @@ from keiba_1.settings import BASE_DIR
 from django.shortcuts import render
 from django.http import FileResponse, Http404
 from django.views import View
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+
+from scry.UserModules.user_update import main as upload_main
+from .forms import UploadForm
     
 class ListCSVFilesView(View):
     csv_dir=os.path.join(BASE_DIR,'module_csv/csv')
@@ -47,6 +52,32 @@ class DownloadCSVView(View):
         response = FileResponse(open(file_path, 'rb'), content_type='text/csv')
         response['Content-Disposition'] = f'attachment; filename="{filename}"'
         return response
+    
+def update_data_view(request):
+    """
+    フォームに入力された target_year と html_update_days_threshold をもとに
+    user_upload.py の main() を実行するビュー
+    """
+
+    if request.method == "POST":
+        form = UploadForm(request.POST)
+        if form.is_valid():
+            # フォームからデータを取り出す
+            target_year = form.cleaned_data['target_year']
+            threshold = form.cleaned_data['html_update_days_threshold']
+            
+            # user_upload.py の main() を呼び出す
+            upload_main(target_year, threshold)
+            
+            # 完了メッセージやリダイレクトなど
+            return HttpResponse("データ更新が完了しました。")
+    else:
+        # GETリクエストなら空のフォームを表示
+        form = UploadForm()
+
+    return render(request, 'update_race_data.html', {'form': form})
+    
+# class UploadCommandView()
 
 
 # Create your views here.

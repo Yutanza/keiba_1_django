@@ -15,4 +15,5 @@ class Migration(migrations.Migration):
             name='grade',
             field=models.CharField(blank=True, max_length=10, null=True, verbose_name='グレード'),
         ),
+        
     ]

@@ -1,2 +1,2 @@
 ﻿ID,パスワード,最終ログイン,スーパーユーザー権限,ユーザー名,名,姓,メールアドレス,スタッフ権限,有効,登録日
-1,pbkdf2_sha256$870000$xiDflCM2p44d2ny6MPc7Uz$+kjCrGm02tw77NFwUJ2Ts0HJFHLEJioXYt84sXaf9js=,2025-02-14 01:27:20.059339+00:00,True,Yutanza,,,koriny33@gmail.com,True,True,2025-02-14 01:26:45.451957+00:00
+1,pbkdf2_sha256$870000$xiDflCM2p44d2ny6MPc7Uz$+kjCrGm02tw77NFwUJ2Ts0HJFHLEJioXYt84sXaf9js=,2025-02-24 14:34:01.912346+00:00,True,Yutanza,,,koriny33@gmail.com,True,True,2025-02-14 01:26:45.451000+00:00
